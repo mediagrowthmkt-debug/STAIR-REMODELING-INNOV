@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Built-ins Massachusetts | Innov Builders | Free Estimate</title>
-    <meta name="description" content="Transform your space with custom built-ins in Massachusetts & New Hampshire. Expert craftsmanship, 11+ years experience. Free estimate. Call (978) 871-0597">
+    <title>Stair Remodeling Massachusetts | Innov Builders | Free Estimate</title>
+    <meta name="description" content="Transform worn stairs with professional stair remodeling in Massachusetts & New Hampshire. Expert craftsmanship, 11+ years experience. Free estimate. Call (978) 871-0597">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -255,10 +255,64 @@
             padding: 80px 0;
         }
 
+        /* VIDEO TESTIMONIAL SECTION */
+        .video-testimonial {
+            background: #000;
+            padding: 80px 0;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(255, 195, 0, 0.3);
+            aspect-ratio: 16/9;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            background: #000;
+        }
+
+        /* Força o controle de tamanho mesmo durante reprodução */
+        .video-wrapper video:fullscreen {
+            object-fit: contain;
+        }
+
+        .video-wrapper video:-webkit-full-screen {
+            object-fit: contain;
+        }
+
+        .video-wrapper video:-moz-full-screen {
+            object-fit: contain;
+        }
+
+        /* Garante que o player mantenha o tamanho */
+        .video-wrapper video[controls] {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .benefits {
+            background: linear-gradient(135deg, #111, #000);
+            padding: 80px 0;
+        }
+
         .benefits-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            display: flex;
+            justify-content: center;
             align-items: center;
         }
 
@@ -266,7 +320,9 @@
             display: flex;
             flex-direction: column;
             gap: 40px;
-            align-items: flex-start;
+            align-items: center;
+            text-align: center;
+            max-width: 800px;
         }
 
         .benefits-text {
@@ -335,7 +391,7 @@
         }
 
         .benefits-image {
-            background: url('built-ins.jpg') center/cover;
+            background: linear-gradient(45deg, rgba(255, 195, 0, 0.8), rgba(230, 175, 0, 0.8));
             height: 400px;
             border-radius: 15px;
             display: flex;
@@ -343,16 +399,22 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
+            padding: 20px;
         }
 
         .benefits-image::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(255, 195, 0, 0.8), rgba(230, 175, 0, 0.8));
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background-image: url('STRAIR FROM INNOV BUILDERS.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .benefits-image span {
@@ -841,8 +903,8 @@
             }
 
             .benefits-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
+                display: flex;
+                justify-content: center;
             }
 
             .benefits-content {
@@ -852,7 +914,7 @@
             }
 
             .benefits-text {
-                text-align: left;
+                text-align: center;
             }
 
             .ceo-image-section {
@@ -902,6 +964,15 @@
                 transform: scale(1) !important;
                 transition: opacity 1.5s ease-in-out, transform 3s ease-in-out;
             }
+
+            .video-wrapper {
+                max-width: 90%;
+                aspect-ratio: 16/9;
+            }
+
+            .video-wrapper video {
+                object-fit: contain;
+            }
         }
 
         @media (max-width: 480px) {
@@ -939,6 +1010,11 @@
         .mb-20 { margin-bottom: 20px; }
         .mb-30 { margin-bottom: 30px; }
         .mb-40 { margin-bottom: 40px; }
+        .project-highlight {
+            margin-top: 30px;
+            color: #FFC300;
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
@@ -954,17 +1030,16 @@
     <!-- HERO VIDEO SECTION -->
     <section class="hero-video">
         <div class="hero-slider">
-            <div class="hero-slide active" style="background-image: url('FOTOS HEADER/Living+Room+Built-Ins+_tutorial_.webp')"></div>
-            <div class="hero-slide" style="background-image: url('FOTOS HEADER/closet-cabinets-custom.jpg')"></div>
-            <div class="hero-slide" style="background-image: url('FOTOS HEADER/ugly-built-in-shelves-v0-bjfsl45b88td1.webp')"></div>
+            <div class="hero-slide active" style="background-image: url('1. primeiro bloco hero/5-Compelling-Reasons-to-Move-or-Add-a-Staircase-in-Your-Home-01-1024x683.jpg')"></div>
+            <div class="hero-slide" style="background-image: url('1. primeiro bloco hero/Staircase-Renovation-Ideas-Costs-72px.webp')"></div>
         </div>
         <div class="hero-overlay">
-            <h1 class="hero-title">Custom Built-ins That Transform Spaces</h1>
-            <p class="hero-subtitle">Designed, crafted, and installed with precision and passion</p>
+            <h1 class="hero-title">Bring Your Stairs Back to Life</h1>
+            <p class="hero-subtitle">Old, squeaky, or outdated stairs can make your home look tired — and even unsafe</p>
             <p class="hero-location">📍 Serving Massachusetts and New Hampshire</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn-primary">
-                    <i class="fas fa-calculator"></i> Request Free Estimate
+                    <i class="fas fa-calculator"></i> Get Your Free Stair Estimate Today
                 </a>
             </div>
         </div>
@@ -972,45 +1047,100 @@
 
     <!-- HERO SECTION - AIDA -->
     <section class="hero-section section">
-        <h1>Bring Function and Style Together with Custom Built-ins</h1>
-        <p>Whether it's cabinets, shelves, bookcases, or a custom pantry, our team designs and builds each piece to perfectly fit your space.</p>
-        <p class="subtext">Transform empty walls into elegant, functional storage — crafted locally by experts with over 11 years of experience in remodeling and fine carpentry.</p>
+        <h1>Bring Your Stairs Back to Life</h1>
+        <p>Old, squeaky, or outdated stairs can make your home look tired — and even unsafe. Whether you need a full staircase renovation or just a few repairs, our team transforms worn-out stairs into stunning, modern focal points that last for decades.</p>
+        <p class="subtext">👉 Free estimates available — fast, professional, and local.</p>
         <a href="#contact" class="btn-primary">
-            <i class="fas fa-arrow-right"></i> Get My Free Quote Today
+            <i class="fas fa-arrow-right"></i> Get Your Free Stair Estimate Today
         </a>
     </section>
 
-    <!-- BENEFITS SECTION -->
+    <!-- SERVICES SECTION -->
     <section class="benefits">
         <div class="section">
-            <h2 class="section-title">Why Homeowners Choose Innov Builders</h2>
+            <h2 class="section-title">We Specialize in All Types of Stair Remodeling</h2>
             <div class="benefits-grid">
                 <div class="benefits-content">
                     <div class="benefits-text">
                         <ul class="benefits-list">
                             <li>
-                                <i class="fas fa-check-circle"></i>
-                                Tailor-made designs that fit your space and lifestyle
+                                <i class="fas fa-hammer"></i>
+                                Complete stair renovation and redesign
                             </li>
                             <li>
-                                <i class="fas fa-check-circle"></i>
-                                Premium materials and flawless craftsmanship
+                                <i class="fas fa-tools"></i>
+                                Hardwood tread and riser replacement
                             </li>
                             <li>
-                                <i class="fas fa-check-circle"></i>
-                                Local team with OSHA certification and full insurance
+                                <i class="fas fa-paint-brush"></i>
+                                Handrail and baluster upgrades
                             </li>
                             <li>
-                                <i class="fas fa-check-circle"></i>
-                                Projects delivered on time, with guaranteed satisfaction
+                                <i class="fas fa-exchange-alt"></i>
+                                Carpet-to-wood conversions
+                            </li>
+                            <li>
+                                <i class="fas fa-home"></i>
+                                Basement and entryway stairs renovation
+                            </li>
+                            <li>
+                                <i class="fas fa-magic"></i>
+                                Refinishing, painting, and repairing damaged steps
+                            </li>
+                        </ul>
+                        <p class="project-highlight">Every project is customized to your home's design, ensuring beauty, safety, and long-lasting value.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO VIDEO SECTION -->
+    <section class="video-testimonial section">
+        <div class="video-container">
+            <h2 class="section-title">Meet Iago Maciel - Your Stair Renovation Expert</h2>
+            <div class="video-wrapper">
+                <video controls poster="foto iago (ceo)/innovbuilders ceo iago maciel.png">
+                    <source src="VIDEOS/IAGO TALKING ABOUT A STAIR REMODELING.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="section-subtitle">With over 11 years of experience, Iago leads our team in delivering exceptional stair remodeling projects across Massachusetts and New Hampshire.</p>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="benefits">
+        <div class="section">
+            <h2 class="section-title">Your Stairs Aren't Just a Pathway — They're Part of Your Home's Character</h2>
+            <div class="benefits-grid">
+                <div class="benefits-content">
+                    <div class="benefits-text">
+                        <ul class="benefits-list">
+                            <li>
+                                <i class="fas fa-star"></i>
+                                Our skilled craftsmen use top-quality materials and precision detailing
+                            </li>
+                            <li>
+                                <i class="fas fa-chart-line"></i>
+                                Before-and-after transformations that dramatically improve resale value
+                            </li>
+                            <li>
+                                <i class="fas fa-shield-alt"></i>
+                                Trusted by homeowners across Massachusetts & New Hampshire
+                            </li>
+                            <li>
+                                <i class="fas fa-thumbs-up"></i>
+                                100% satisfaction guaranteed
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                Quick turnaround times and clean job sites
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="ceo-image-section">
-                    <div class="ceo-section">
-                        <img src="foto iago/Cópia de Cópia de built-in (3).png" alt="Iago Maciel - CEO & Founder" class="ceo-original-photo">
-                    </div>
+                <div class="benefits-image">
                 </div>
             </div>
         </div>
@@ -1018,14 +1148,14 @@
 
     <!-- PORTFOLIO SECTION -->
     <section class="portfolio section">
-        <h2 class="section-title">See the Difference</h2>
-        <p class="section-subtitle">From empty walls to elegant, functional built-ins — explore some of our recent transformations.</p>
+        <h2 class="section-title">Before & After Transformations</h2>
+        <p class="section-subtitle">See how we transform tired, outdated stairs into stunning, safe, and functional focal points.</p>
         
         <div class="portfolio-grid">
             <div class="portfolio-item">
-                <div class="before-after-slider" data-project="built-in-bench-drawers">
-                    <img src="projects/Built-in bench with drawers/after.jpeg" alt="Before" class="before-image">
-                    <img src="projects/Built-in bench with drawers/before.jpeg" alt="After" class="after-image">
+                <div class="before-after-slider" data-project="project-1">
+                    <img src="BEFORE AND AFTER/1/after.jpg" alt="Before" class="before-image">
+                    <img src="BEFORE AND AFTER/1/before.jpg" alt="After" class="after-image">
                     <div class="slider-handle"></div>
                     <div class="before-after-labels">
                         <span class="before-label">BEFORE</span>
@@ -1033,14 +1163,14 @@
                     </div>
                 </div>
                 <div class="portfolio-content">
-                    <h3>Built-in bench with drawers</h3>
-                    <p>Lynn, MA</p>
+                    <h3>Complete Stair Transformation</h3>
+                    <p>Project 1 - Massachusetts</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <div class="before-after-slider" data-project="built-in-entertainment-center">
-                    <img src="projects/Built-in entertainment center/after.png" alt="Before" class="before-image">
-                    <img src="projects/Built-in entertainment center/before.jpg" alt="After" class="after-image">
+                <div class="before-after-slider" data-project="project-2">
+                    <img src="BEFORE AND AFTER/2/PHOTO-2024-09-03-14-32-26(2).jpg" alt="Before" class="before-image">
+                    <img src="BEFORE AND AFTER/2/PHOTO-2024-09-03-14-34-12(23).jpg" alt="After" class="after-image">
                     <div class="slider-handle"></div>
                     <div class="before-after-labels">
                         <span class="before-label">BEFORE</span>
@@ -1048,14 +1178,14 @@
                     </div>
                 </div>
                 <div class="portfolio-content">
-                    <h3>Built-in entertainment center</h3>
-                    <p>Newton, MA</p>
+                    <h3>Modern Stair Renovation</h3>
+                    <p>Project 2 - Massachusetts</p>
                 </div>
             </div>
             <div class="portfolio-item">
-                <div class="before-after-slider" data-project="built-in-laundry-unit">
-                    <img src="projects/Built-in laundry unit/after.jpg" alt="Before" class="before-image">
-                    <img src="projects/Built-in laundry unit/before.jpg" alt="After" class="after-image">
+                <div class="before-after-slider" data-project="project-3">
+                    <img src="BEFORE AND AFTER/3/after.jpeg" alt="Before" class="before-image">
+                    <img src="BEFORE AND AFTER/3/before.jpeg" alt="After" class="after-image">
                     <div class="slider-handle"></div>
                     <div class="before-after-labels">
                         <span class="before-label">BEFORE</span>
@@ -1063,54 +1193,28 @@
                     </div>
                 </div>
                 <div class="portfolio-content">
-                    <h3>Built-in laundry unit</h3>
-                    <p>Medford, MA</p>
+                    <h3>Professional Stair Remodeling</h3>
+                    <p>Project 3 - Massachusetts</p>
                 </div>
             </div>
-            <div class="portfolio-item">
-                <div class="before-after-slider" data-project="built-in-bookshelf">
-                    <img src="projects/Built-in bookshelf/after.jpg" alt="Before" class="before-image">
-                    <img src="projects/Built-in bookshelf/before.jpg" alt="After" class="after-image">
-                    <div class="slider-handle"></div>
-                    <div class="before-after-labels">
-                        <span class="before-label">BEFORE</span>
-                        <span class="after-label">AFTER</span>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Built-in bookshelf</h3>
-                    <p>Salem, MA</p>
-                </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE VIDEO SECTION -->
+    <section class="video-showcase section" style="background: #111; padding: 80px 0;">
+        <div class="video-container">
+            <h2 class="section-title">More Projects</h2>
+            <div class="video-wrapper">
+                <video controls poster="✅ Danvers &quot;stair&quot;/project stair done.jpg">
+                    <source src="VIDEOS/STAIR REMODELLING FROM INNOV BUILDERS.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-            <div class="portfolio-item">
-                <div class="before-after-slider" data-project="built-in-corner-cabinet">
-                    <img src="projects/Built-in corner cabinet/after.jpg" alt="Before" class="before-image">
-                    <img src="projects/Built-in corner cabinet/before.jpg" alt="After" class="after-image">
-                    <div class="slider-handle"></div>
-                    <div class="before-after-labels">
-                        <span class="before-label">BEFORE</span>
-                        <span class="after-label">AFTER</span>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Built-in corner cabinet</h3>
-                    <p>Harvard, MA</p>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="before-after-slider" data-project="built-in-fireplace-shelving">
-                    <img src="projects/Built-in fireplace shelving/after.jpg" alt="Before" class="before-image">
-                    <img src="projects/Built-in fireplace shelving/before.jpeg" alt="After" class="after-image">
-                    <div class="slider-handle"></div>
-                    <div class="before-after-labels">
-                        <span class="before-label">BEFORE</span>
-                        <span class="after-label">AFTER</span>
-                    </div>
-                </div>
-                <div class="portfolio-content">
-                    <h3>Built-in fireplace shelving</h3>
-                    <p>Beverly, MA</p>
-                </div>
+            <p class="section-subtitle">Watch how we transform stairs from concept to completion</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#contact" class="btn-primary">
+                    <i class="fas fa-arrow-right"></i> Transform Your Stairs — Book a Free Consultation
+                </a>
             </div>
         </div>
     </section>
@@ -1118,37 +1222,37 @@
     <!-- TESTIMONIALS SECTION -->
     <section class="testimonials">
         <div class="section">
-            <h2 class="section-title" style="color: #333;">What Our Clients Are Saying</h2>
+            <h2 class="section-title" style="color: #333;">What Our Stair Remodeling Clients Are Saying</h2>
             <div class="testimonials-grid">
                 <div class="testimonial">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Innov Builders created a custom built-in that perfectly integrates our washing machine and cabinets, and the result was amazing! The space is now much more functional, with a modern and elegant look. The team was extremely meticulous with the finishing and always receptive to our ideas. Top-quality service, delivered right on time. We're very satisfied!"</p>
-                    <p class="testimonial-author">— Mariana Vale</p>
+                    <p class="testimonial-text">"Our stairs were old, squeaky, and honestly a bit dangerous. Innov Builders completely transformed them! The new hardwood treads and modern railings make our home feel like new. The team was professional, clean, and finished exactly on time. Couldn't be happier!"</p>
+                    <p class="testimonial-author">— Sarah Mitchell, Brookline MA</p>
                 </div>
                 <div class="testimonial">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"We had an amazing experience working with Innov Builders! The team is professional, efficient, and always attentive to our needs. They delivered our project on time, with high-quality results that exceeded our expectations. Highly recommend Innov Builders for anyone looking for reliable and skilled construction services!"</p>
-                    <p class="testimonial-author">— Samyla Schmidt</p>
+                    <p class="testimonial-text">"We had an amazing experience working with Innov Builders on our stair renovation! The team is professional, efficient, and always attentive to our needs. They delivered our project on time, with high-quality results that exceeded our expectations. Our stairs went from carpet to beautiful hardwood - incredible transformation!"</p>
+                    <p class="testimonial-author">— Michael Thompson</p>
                 </div>
                 <div class="testimonial">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"We replaced all the windows in our home with Innov Builders and it was the best decision we could've made! The work was fast, clean, and perfectly finished. The quality of the materials and the team's attention to detail made all the difference. Excellent service and a result that was far beyond our expectations. Highly recommend!"</p>
-                    <p class="testimonial-author">— Pedro Joas</p>
+                    <p class="testimonial-text">"The stair railing upgrade was exactly what our home needed. Iago and his team replaced our outdated balusters with modern ones that completely changed the look of our entryway. Fast, clean work with incredible attention to detail. Highly recommend for any stair project!"</p>
+                    <p class="testimonial-author">— Jennifer Adams</p>
                 </div>
                 <div class="testimonial">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"We chose Innov Builders for our kitchen renovation and the result was absolutely outstanding! From the very beginning, the team showed true professionalism. Everything was completed with great attention to detail, on time, and with a flawless finish. Top-quality service! Highly recommend!"</p>
-                    <p class="testimonial-author">— Fabricio Luiz</p>
+                    <p class="testimonial-text">"We chose Innov Builders for our basement stair renovation and the result was absolutely outstanding! From the very beginning, the team showed true professionalism. Everything was completed with great attention to detail, on time, and with a flawless finish. Our basement stairs are now safe and beautiful!"</p>
+                    <p class="testimonial-author">— Robert Wilson</p>
                 </div>
                 <div class="testimonial">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Great communication, very fast turnaround, and excellent quality work on my deck project. Highly recommend Iago and his team!"</p>
-                    <p class="testimonial-author">— Chihsheng Yang</p>
+                    <p class="testimonial-text">"Great communication, very fast turnaround, and excellent quality work on our stair remodeling project. The treads were refinished perfectly and the new handrail is exactly what we wanted. Highly recommend Iago and his team!"</p>
+                    <p class="testimonial-author">— Lisa Chen</p>
                 </div>
                 <div class="testimonial">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Great people and terrific job! Iago and his crew built a second level deck at my house in Marblehead, MA. They did a fantastic job on a complicated task that included suspended staircase. High quality, honest and fair. Highest recommendation!"</p>
-                    <p class="testimonial-author">— Anderson Schulz</p>
+                    <p class="testimonial-text">"Great people and terrific job! Iago and his crew transformed our old wooden stairs into a beautiful modern focal point. They did a fantastic job on a complicated renovation that included custom railings. High quality, honest and fair. Highest recommendation!"</p>
+                    <p class="testimonial-author">— David Rodriguez</p>
                 </div>
             </div>
         </div>
@@ -1156,28 +1260,28 @@
 
     <!-- ABOUT SECTION -->
     <section class="about section">
-        <h2 class="section-title">Hands That Create and Transform</h2>
+        <h2 class="section-title">Transforming Stairs Across Massachusetts & New Hampshire</h2>
         <div class="about-content">
-            <p class="section-subtitle">At Innov Builders, we believe that true craftsmanship is about more than just building — it's about understanding each client's vision and bringing it to life with precision, creativity, and passion.</p>
-            <p style="color: #ccc; max-width: 800px; margin: 0 auto;">With over a decade of experience, our team handles everything from design to installation, ensuring every detail adds value and harmony to your home.</p>
+            <p class="section-subtitle">At Innov Builders, we believe that true craftsmanship is about more than just remodeling — it's about understanding each client's vision and bringing it to life with precision, creativity, and passion.</p>
+            <p style="color: #ccc; max-width: 800px; margin: 0 auto;">With over a decade of experience in stair remodeling, our team handles everything from design to installation, ensuring every step adds safety, beauty, and value to your home.</p>
         </div>
         
         <div class="stats-grid">
             <div class="stat-item">
                 <span class="stat-number">11+</span>
-                <span class="stat-label">years serving Boston area</span>
+                <span class="stat-label">years specializing in stairs</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">350+</span>
+                <span class="stat-label">stair projects completed</span>
             </div>
             <div class="stat-item">
                 <span class="stat-number">780+</span>
                 <span class="stat-label">satisfied clients</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number">1,230+</span>
-                <span class="stat-label">completed projects</span>
-            </div>
-            <div class="stat-item">
                 <span class="stat-number">5⭐</span>
-                <span class="stat-label">on Google</span>
+                <span class="stat-label">Google rating</span>
             </div>
         </div>
     </section>
@@ -1185,16 +1289,16 @@
     <!-- BSC SECTION -->
     <section class="bsc-section">
         <div class="section">
-            <h2 class="section-title" style="color: #000;">Quality That's Planned and Measured</h2>
-            <p style="max-width: 800px; margin: 0 auto; font-size: 1.2rem; line-height: 1.6;">We are one of the few construction companies in the region that applies the Balanced Scorecard (BSC) method, a strategic management tool created at Harvard University, ensuring excellence and safety in every project.</p>
+            <h2 class="section-title" style="color: #000;">Safety and Quality That's Planned and Measured</h2>
+            <p style="max-width: 800px; margin: 0 auto; font-size: 1.2rem; line-height: 1.6;">We are one of the few stair remodeling companies in the region that applies the Balanced Scorecard (BSC) method, a strategic management tool created at Harvard University, ensuring excellence and safety in every stair project.</p>
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="contact section">
         <div class="contact-container">
-            <h2 class="section-title">Ready to Build Your Dream Built-ins?</h2>
-            <p class="section-subtitle">Fill out the form below or call us — we'll get back to you within 24 hours.</p>
+            <h2 class="section-title">Get Your Free Stair Renovation Estimate Today</h2>
+            <p class="section-subtitle">No pressure, no hidden fees — just honest work that makes your home shine again.</p>
             
             <form id="contactForm" class="contact-form">
                 <div class="form-row">
@@ -1213,24 +1317,32 @@
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="budget">What's your estimated budget for this project? *</label>
-                        <select id="budget" name="budget" required>
-                            <option value="">Select your budget range</option>
-                            <option value="under-5k">Under $5,000</option>
-                            <option value="5k-10k">$5,000 - $10,000</option>
-                            <option value="10k-20k">$10,000 - $20,000</option>
-                            <option value="20k-50k">$20,000 - $50,000</option>
-                            <option value="over-50k">Over $50,000</option>
+                        <label for="stairType">What type of stair work do you need? *</label>
+                        <select id="stairType" name="stairType" required>
+                            <option value="">Select your stair project type</option>
+                            <option value="complete-renovation">Complete stair renovation</option>
+                            <option value="hardwood-replacement">Hardwood tread and riser replacement</option>
+                            <option value="handrail-upgrade">Handrail and baluster upgrades</option>
+                            <option value="carpet-to-wood">Carpet-to-wood conversion</option>
+                            <option value="refinishing">Refinishing and painting</option>
+                            <option value="repair">Stair repair</option>
+                            <option value="other">Other/Not sure</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="project">Tell us more about your project</label>
-                    <textarea id="project" name="project" placeholder="Describe your built-in project..."></textarea>
+                    <label for="project">Tell us more about your stair project</label>
+                    <textarea id="project" name="project" placeholder="Describe your current stairs, what you'd like to change, any specific concerns (squeaking, safety, appearance), etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label style="display: flex; align-items: center; gap: 10px; color: #ccc; font-size: 0.9rem; margin-bottom: 20px;">
+                        <input type="checkbox" required style="width: auto;">
+                        I agree to receive communications about my project and understand my information will be used according to Innov Builders' privacy policy.
+                    </label>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn-primary" style="font-size: 1.2rem; padding: 18px 40px;">
-                        <i class="fas fa-calculator"></i> Get My Free Estimate
+                        <i class="fas fa-calculator"></i> Get Your Free Stair Estimate Today
                     </button>
                 </div>
             </form>
@@ -1259,12 +1371,23 @@
         <div class="footer-content">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <h3>Certifications</h3>
+                    <h3>Safety & Certifications</h3>
                     <ul class="footer-links">
                         <li>OSHA Certified</li>
                         <li>Fully Insured</li>
+                        <li>Building Code Compliant</li>
                         <li>HIC License: 212869</li>
                         <li>BBB Accredited</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Stair Services</h3>
+                    <ul class="footer-links">
+                        <li>Complete Stair Renovation</li>
+                        <li>Hardwood Tread Replacement</li>
+                        <li>Handrail & Baluster Upgrades</li>
+                        <li>Carpet to Wood Conversions</li>
+                        <li>Stair Repair & Refinishing</li>
                     </ul>
                 </div>
             </div>
@@ -1277,7 +1400,7 @@
     <!-- FLOATING CALL BUTTON -->
     <div class="floating-call" id="floatingCall">
         <i class="fas fa-phone"></i>
-        <div class="floating-call-text" id="floatingText">Talk to us right now</div>
+        <div class="floating-call-text" id="floatingText">Get Free Estimate</div>
     </div>
 
     <script>
