@@ -114,19 +114,45 @@
                     formObject[key] = value;
                 });
                 
+                // Add source field
+                formObject.fonte = 'lp-stairs';
+                
                 console.log('Test form data:', formObject);
                 
                 // Show loading
                 const submitBtn = this.querySelector('button[type="submit"]');
-                submitBtn.innerHTML = 'Redirecting...';
+                submitBtn.innerHTML = 'Sending...';
                 submitBtn.disabled = true;
                 
-                // Test redirect
-                setTimeout(() => {
-                    console.log('Redirecting to thank you page...');
-                    status.innerHTML = 'Redirecting now...';
-                    window.location.href = 'thank-you.html';
-                }, 2000);
+                // Send to Make.com webhook
+                status.innerHTML = 'Sending data to Make.com...';
+                
+                fetch('https://hook.us2.make.com/ctp3mh229k0mi9ujiy1xcu1xh84fpa3x', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formObject)
+                })
+                .then(response => {
+                    console.log('Response:', response);
+                    if (response.ok) {
+                        status.innerHTML = '✅ Success! Redirecting...';
+                        console.log('Form submitted successfully!');
+                        // Redirect to thank you page
+                        setTimeout(() => {
+                            window.location.href = 'thank-you.html';
+                        }, 1500);
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    status.innerHTML = '❌ Error: ' + error.message;
+                    submitBtn.innerHTML = 'Submit Test';
+                    submitBtn.disabled = false;
+                });
             });
         });
     </script>

@@ -1615,6 +1615,9 @@
                     formObject[key] = value;
                 });
                 
+                // Add source field
+                formObject.fonte = 'lp-stairs';
+                
                 console.log('Form data collected:', formObject);
                 
                 // Show loading state
@@ -1623,15 +1626,33 @@
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 submitBtn.disabled = true;
                 
-                console.log('Showing loading state...');
+                console.log('Sending data to Make.com webhook...');
                 
-                // Simulate form processing (replace with actual form handling)
-                setTimeout(() => {
-                    console.log('Redirecting to thank you page...');
-                    
-                    // Redirect to thank you page
-                    window.location.href = 'thank-you.html';
-                }, 1500);
+                // Send data to Make.com webhook
+                fetch('https://hook.us2.make.com/ctp3mh229k0mi9ujiy1xcu1xh84fpa3x', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formObject)
+                })
+                .then(response => {
+                    console.log('Response received:', response);
+                    if (response.ok) {
+                        console.log('Form submitted successfully!');
+                        // Redirect to thank you page
+                        window.location.href = 'thank-you.html';
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error submitting form:', error);
+                    // Show error message to user
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    alert('Sorry, there was an error submitting your form. Please try again or call us directly at (978) 871-0597');
+                });
             });
         });
     </script>
