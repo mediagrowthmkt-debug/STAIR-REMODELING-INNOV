@@ -222,8 +222,6 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '811056244975308');
     fbq('track', 'PageView');
-    // Lead conversion on Meta Thank You page
-    fbq('track', 'Lead');
     </script>
     <!-- End Meta Pixel Code -->
 </head>
@@ -297,10 +295,31 @@
     </div>
 
     <script>
-        // Auto-redirect after 30 seconds (optional)
-        // setTimeout(() => {
-        //     window.location.href = 'index.html';
-        // }, 30000);
+        // Fire Lead event reliably after pixel is available
+        (function fireLeadOnce() {
+            var fired = false;
+            function tryLead() {
+                if (fired) return;
+                if (typeof fbq === 'function') {
+                    try {
+                        fbq('track', 'Lead');
+                        fired = true;
+                        // console.log('[Meta Pixel] Lead fired');
+                    } catch (e) {
+                        // console.warn('[Meta Pixel] Lead error', e);
+                    }
+                }
+            }
+            // Attempt on DOM ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', tryLead);
+            } else {
+                tryLead();
+            }
+            // Fallback after short delay (pixel async load)
+            setTimeout(tryLead, 800);
+            setTimeout(tryLead, 2000);
+        })();
     </script>
 </body>
 </html>
