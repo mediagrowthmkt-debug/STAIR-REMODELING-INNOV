@@ -1615,8 +1615,11 @@
                     formObject[key] = value;
                 });
                 
-                // Add source field
+                // Add source field and campaign tracking
                 formObject.fonte = 'lp-stairs-google';
+                formObject.url_campanha = window.location.href;
+                formObject.nome_pagina = 'Stair Remodeling - Landing Page Google';
+                formObject.nome_campanha = 'Google';
                 
                 console.log('Form data collected:', formObject);
                 
