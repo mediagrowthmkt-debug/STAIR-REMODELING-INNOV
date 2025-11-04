@@ -286,6 +286,39 @@
             background: #000;
         }
 
+        /* Center play overlay */
+        .video-wrapper .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.35);
+            z-index: 5;
+            transition: opacity 0.25s ease;
+            cursor: pointer;
+        }
+        .video-wrapper .play-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .video-wrapper .play-button {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.6);
+            border: 2px solid #FFC300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFC300;
+            box-shadow: 0 10px 25px rgba(255,195,0,0.25);
+        }
+        .video-wrapper .play-button i {
+            font-size: 28px;
+            margin-left: 4px; /* nudge the play triangle visually */
+        }
+
         /* Força o controle de tamanho mesmo durante reprodução */
         .video-wrapper video:fullscreen {
             object-fit: contain;
@@ -973,6 +1006,13 @@
             .video-wrapper video {
                 object-fit: contain;
             }
+            .video-wrapper .play-button {
+                width: 70px;
+                height: 70px;
+            }
+            .video-wrapper .play-button i {
+                font-size: 24px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1656,6 +1696,51 @@
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                     alert('Sorry, there was an error submitting your form. Please try again or call us directly at (978) 871-0597');
+                });
+            });
+        });
+
+        // Video overlay play/pause control
+        document.addEventListener('DOMContentLoaded', function() {
+            const wrappers = document.querySelectorAll('.video-wrapper');
+            wrappers.forEach(wrapper => {
+                const video = wrapper.querySelector('video');
+                if (!video) return;
+
+                // Create overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'play-overlay';
+                overlay.innerHTML = '<div class="play-button"><i class="fas fa-play"></i></div>';
+                wrapper.appendChild(overlay);
+
+                function showOverlay() {
+                    overlay.classList.remove('hidden');
+                }
+                function hideOverlay() {
+                    overlay.classList.add('hidden');
+                }
+
+                // Initial state
+                showOverlay();
+
+                // Click overlay to play
+                overlay.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    video.play();
+                });
+
+                // Click video area to toggle play/pause
+                video.addEventListener('click', function() {
+                    if (video.paused) video.play(); else video.pause();
+                });
+
+                // Sync overlay with video state
+                video.addEventListener('play', hideOverlay);
+                video.addEventListener('pause', showOverlay);
+                video.addEventListener('ended', function(){
+                    // ensure overlay returns on end
+                    showOverlay();
                 });
             });
         });
