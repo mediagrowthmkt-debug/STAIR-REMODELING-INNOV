@@ -6,13 +6,40 @@
     <title>Thank You - Innov Builders | Stair Remodeling | Google</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16940335819"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);} 
+            gtag('js', new Date());
 
-      gtag('config', 'AW-16940335819');
-    </script>
+            gtag('config', 'AW-16940335819');
+      
+            // Google Ads Conversion: Lead (Thank You page)
+            // IMPORTANT: Replace CONVERSION_LABEL with your actual conversion label from Google Ads
+            (function fireGoogleLeadOnce(){
+                var fired = false;
+                function tryLead(){
+                    if (fired) return;
+                    if (typeof gtag === 'function'){
+                        try{
+                            gtag('event', 'conversion', {
+                                'send_to': 'AW-16940335819/CONVERSION_LABEL'
+                                // Optionally include value and currency:
+                                // , 'value': 1.0,
+                                // 'currency': 'USD'
+                            });
+                            fired = true;
+                        }catch(e){}
+                    }
+                }
+                if (document.readyState === 'loading'){
+                    document.addEventListener('DOMContentLoaded', tryLead);
+                } else {
+                    tryLead();
+                }
+                setTimeout(tryLead, 800);
+                setTimeout(tryLead, 2000);
+            })();
+        </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
