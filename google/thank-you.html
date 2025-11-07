@@ -14,7 +14,7 @@
             gtag('config', 'AW-16940335819');
       
             // Google Ads Conversion: Lead (Thank You page)
-            // IMPORTANT: Replace CONVERSION_LABEL with your actual conversion label from Google Ads
+            // Using provided conversion label
             (function fireGoogleLeadOnce(){
                 var fired = false;
                 function tryLead(){
@@ -22,10 +22,9 @@
                     if (typeof gtag === 'function'){
                         try{
                             gtag('event', 'conversion', {
-                                'send_to': 'AW-16940335819/CONVERSION_LABEL'
-                                // Optionally include value and currency:
-                                // , 'value': 1.0,
-                                // 'currency': 'USD'
+                                'send_to': 'AW-16940335819/9DVwCJ63s7sbEMuF5I0_',
+                                'value': 1.0,
+                                'currency': 'USD'
                             });
                             fired = true;
                         }catch(e){}
