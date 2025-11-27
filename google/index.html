@@ -1661,8 +1661,16 @@
             // Store name in localStorage for analytics
             localStorage.setItem('userName', userName);
             
+            // Generate unique source_id (timestamp + random)
+            const sourceId = `call_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+            
+            // Detect platform from URL
+            const currentUrl = window.location.href.toLowerCase();
+            const platform = currentUrl.includes('/google/') ? 'google' : 
+                           currentUrl.includes('/meta/') ? 'meta' : 'google';
+            
             // Send to webhook (Make.com)
-            fetch('https://hook.us2.make.com/3ac4ux2kswm4ajxmfuw6uibu85nkr6u5', {
+            fetch('https://hook.us2.make.com/ctp3mh229k0mi9ujiy1xcu1xh84fpa3x', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1670,9 +1678,15 @@
                 body: JSON.stringify({
                     name: userName,
                     source: 'Ligação - Phone Call',
-                    message: `Ligação - Nome: ${userName} | Página: ${window.location.href} | Data: ${new Date().toLocaleString('pt-BR')}`,
-                    timestamp: new Date().toISOString(),
-                    page: window.location.href
+                    source_id: sourceId,
+                    platform: platform,
+                    campaign_url: window.location.href,
+                    page_name: `Stair Remodeling Massachusetts - ${platform === 'google' ? 'Google' : 'Meta'} Campaign - Phone Call`,
+                    campaign_name: `Stair Remodeling Landing Page - ${platform === 'google' ? 'Google' : 'Meta'} Ads - Phone Call`,
+                    traffic_source: platform === 'google' ? 'Google Ads' : 'Meta Ads',
+                    form_location: 'Phone Call Modal',
+                    message: `Ligação - Nome: ${userName}`,
+                    timestamp: new Date().toISOString()
                 })
             }).catch(error => console.log('Webhook error:', error));
             
