@@ -1727,7 +1727,10 @@
             });
         }
 
-        // Confirm call button
+        // Setup call interception on page load
+        setupCallInterception();
+
+        // Confirm call button - Send only NAME to webhook
         confirmCallBtn.addEventListener('click', function() {
             const userName = nameInput.value.trim();
             
@@ -1738,19 +1741,14 @@
                 return;
             }
 
-            // Store phone number before hiding modal
             const phoneToCall = pendingPhoneNumber;
             
             console.log('User name:', userName);
             console.log('Phone to call:', phoneToCall);
 
-            // Store name in localStorage for analytics
             localStorage.setItem('userName', userName);
             
-            // Generate unique source_id (timestamp + random)
-            const sourceId = `call_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-            
-            // Send to webhook (Make.com)
+            // Send only NAME to webhook
             fetch('https://hook.us2.make.com/ctp3mh229k0mi9ujiy1xcu1xh84fpa3x', {
                 method: 'POST',
                 headers: {
@@ -1759,22 +1757,14 @@
                 body: JSON.stringify({
                     name: userName,
                     source: 'Ligação - Phone Call',
-                    source_id: sourceId,
                     platform: 'google',
-                    campaign_url: window.location.href,
-                    page_name: 'Stair Remodeling Massachusetts - Google Campaign - Phone Call',
-                    campaign_name: 'Stair Remodeling Landing Page - Google Ads - Phone Call',
-                    traffic_source: 'Google Ads',
-                    form_location: 'Phone Call Modal',
-                    message: `Ligação - Nome: ${userName}`,
                     timestamp: new Date().toISOString()
                 })
             }).catch(error => console.log('Webhook error:', error));
             
-            // Hide modal
             hideNameModal();
             
-            // Make the call after a small delay to ensure tracking completes
+            // Make the call after a small delay
             setTimeout(() => {
                 console.log('Making call to:', phoneToCall);
                 if (phoneToCall) {
