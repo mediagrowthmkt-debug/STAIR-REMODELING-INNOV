@@ -1231,7 +1231,7 @@
                 <a href="#contact" class="btn-primary" style="font-size: 1.2rem; padding: 18px 35px;">
                     <i class="fas fa-edit"></i> Get Your Free Estimate
                 </a>
-                <a href="tel:+19788711356" class="btn-secondary" style="font-size: 1.2rem; padding: 18px 35px;">
+                <a href="tel:+19788787977" class="btn-secondary" style="font-size: 1.2rem; padding: 18px 35px;">
                     <i class="fas fa-phone"></i> Call/Text Now
                 </a>
             </div>
@@ -1633,10 +1633,10 @@
             </form>
 
             <div style="text-align: center; margin-top: 40px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                <a href="tel:+19788711356" style="color: #FFC300; text-decoration: none; font-size: 1.2rem; font-weight: 700;">
-                    <i class="fas fa-phone"></i> +1 (978) 871‑1356
+                <a href="tel:+19788787977" style="color: #FFC300; text-decoration: none; font-size: 1.2rem; font-weight: 700;">
+                    <i class="fas fa-phone"></i> +1 (978) 878‑7977
                 </a>
-                <a href="https://wa.me/19788711356" target="_blank" style="color: #FFC300; text-decoration: none; font-size: 1.2rem; font-weight: 700;">
+                <a href="https://wa.me/19788787977" target="_blank" style="color: #FFC300; text-decoration: none; font-size: 1.2rem; font-weight: 700;">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
                 <a href="mailto:contact@innovbuildersusa.com" style="color: #FFC300; text-decoration: none; font-size: 1.2rem; font-weight: 700;">
@@ -1677,7 +1677,7 @@
     </footer>
 
     <!-- FIXED MOBILE CALL BUTTON -->
-    <a href="tel:+19788711356" class="floating-call" id="floatingCall" style="text-decoration: none;">
+    <a href="tel:+19788787977" class="floating-call" id="floatingCall" style="text-decoration: none;">
         <i class="fas fa-phone"></i>
         <div class="floating-call-text" id="floatingText">Call Now</div>
     </a>
@@ -1686,8 +1686,8 @@
     <div class="name-modal" id="nameModal">
         <div class="name-modal-content">
             <h3><i class="fas fa-phone"></i> Before you call us...</h3>
-            <p>Please tell us your name:</p>
-            <input type="text" id="nameInput" placeholder="Enter your name" autocomplete="name">
+            <p>We might be busy with a project. Leave your email so we can reach you back if we miss your call:</p>
+            <input type="email" id="emailInput" placeholder="Enter your email" autocomplete="email">
             <div class="name-modal-buttons">
                 <button class="btn-confirm" id="confirmCall">
                     <i class="fas fa-phone"></i> Call Now
@@ -1700,7 +1700,7 @@
     <script>
         // NAME MODAL FUNCTIONALITY
         const nameModal = document.getElementById('nameModal');
-        const nameInput = document.getElementById('nameInput');
+        const emailInput = document.getElementById('emailInput');
         const confirmCallBtn = document.getElementById('confirmCall');
         const cancelCallBtn = document.getElementById('cancelCall');
         let pendingPhoneNumber = '';
@@ -1709,8 +1709,8 @@
         function showNameModal(phoneNumber) {
             pendingPhoneNumber = phoneNumber;
             nameModal.classList.add('show');
-            nameInput.value = '';
-            setTimeout(() => nameInput.focus(), 300);
+            emailInput.value = '';
+            setTimeout(() => emailInput.focus(), 300);
         }
 
         // Function to hide modal
@@ -1736,34 +1736,37 @@
         // Setup call interception on page load
         setupCallInterception();
 
-        // Confirm call button - Send only NAME to webhook
+        // Confirm call button - Send only EMAIL to webhook
         confirmCallBtn.addEventListener('click', function() {
-            const userName = nameInput.value.trim();
+            const userEmail = emailInput.value.trim();
             
-            if (!userName) {
-                nameInput.style.borderColor = '#ff4444';
-                nameInput.placeholder = 'Please enter your name';
-                nameInput.focus();
+            if (!userEmail || !userEmail.includes('@')) {
+                emailInput.style.borderColor = '#ff4444';
+                emailInput.placeholder = 'Please enter a valid email';
+                emailInput.focus();
                 return;
             }
 
             const phoneToCall = pendingPhoneNumber;
             
-            console.log('User name:', userName);
+            console.log('User email:', userEmail);
             console.log('Phone to call:', phoneToCall);
 
-            localStorage.setItem('userName', userName);
+            localStorage.setItem('userEmail', userEmail);
             
-            // Send only NAME to webhook
+            // Send EMAIL to webhook with consistent format
             fetch('https://hook.us2.make.com/ctp3mh229k0mi9ujiy1xcu1xh84fpa3x', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: userName,
-                    source: 'Ligação - Phone Call',
-                    platform: 'meta',
+                    email: userEmail,
+                    traffic_source: 'Meta Ads',
+                    PLATAFORMA: 'META',
+                    page_name: 'Stair Remodeling Massachusetts - Meta Campaign - Phone Call',
+                    campaign_name: 'Stair Remodeling - Meta Ads - Call Button',
+                    form_location: 'Call Button Modal',
                     timestamp: new Date().toISOString()
                 })
             }).catch(error => console.log('Webhook error:', error));
@@ -1792,7 +1795,7 @@
         });
 
         // Enter key to confirm
-        nameInput.addEventListener('keypress', function(e) {
+        emailInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 confirmCallBtn.click();
             }
