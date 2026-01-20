@@ -1680,8 +1680,8 @@
     <div class="name-modal" id="nameModal">
         <div class="name-modal-content">
             <h3><i class="fas fa-phone"></i> Before you call us...</h3>
-            <p>We might be busy with a project. Leave your email so we can reach you back if we miss your call:</p>
-            <input type="email" id="emailInput" placeholder="Enter your email" autocomplete="email">
+            <p>We might be busy with a project. Leave your phone number so we can reach you back if we miss your call:</p>
+            <input type="tel" id="phoneInput" placeholder="Enter your phone number" autocomplete="tel">
             <div class="name-modal-buttons">
                 <button class="btn-confirm" id="confirmCall">
                     <i class="fas fa-phone"></i> Call Now
@@ -1694,7 +1694,7 @@
     <script>
         // NAME MODAL FUNCTIONALITY
         const nameModal = document.getElementById('nameModal');
-        const emailInput = document.getElementById('emailInput');
+        const phoneInput = document.getElementById('phoneInput');
         const confirmCallBtn = document.getElementById('confirmCall');
         const cancelCallBtn = document.getElementById('cancelCall');
         let pendingPhoneNumber = '';
@@ -1703,8 +1703,8 @@
         function showNameModal(phoneNumber) {
             pendingPhoneNumber = phoneNumber;
             nameModal.classList.add('show');
-            emailInput.value = '';
-            setTimeout(() => emailInput.focus(), 300);
+            phoneInput.value = '';
+            setTimeout(() => phoneInput.focus(), 300);
         }
 
         // Function to hide modal
@@ -1730,32 +1730,32 @@
         // Setup call interception on page load
         setupCallInterception();
 
-        // Confirm call button - Send only EMAIL to webhook
+        // Confirm call button - Send PHONE to webhook
         confirmCallBtn.addEventListener('click', function() {
-            const userEmail = emailInput.value.trim();
+            const userPhone = phoneInput.value.trim();
             
-            if (!userEmail || !userEmail.includes('@')) {
-                emailInput.style.borderColor = '#ff4444';
-                emailInput.placeholder = 'Please enter a valid email';
-                emailInput.focus();
+            if (!userPhone || userPhone.length < 10) {
+                phoneInput.style.borderColor = '#ff4444';
+                phoneInput.placeholder = 'Please enter a valid phone number';
+                phoneInput.focus();
                 return;
             }
 
             const phoneToCall = pendingPhoneNumber;
             
-            console.log('User email:', userEmail);
+            console.log('User phone:', userPhone);
             console.log('Phone to call:', phoneToCall);
 
-            localStorage.setItem('userEmail', userEmail);
+            localStorage.setItem('userPhone', userPhone);
             
-            // Send EMAIL to webhook with consistent format
+            // Send PHONE to webhook with consistent format
             fetch('https://hook.us2.make.com/ctp3mh229k0mi9ujiy1xcu1xh84fpa3x', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    email: userEmail,
+                    phone: userPhone,
                     traffic_source: 'Google Ads',
                     PLATAFORMA: 'GOOGLE ADS',
                     page_name: 'Stair Remodeling Massachusetts - Google Campaign - Phone Call',
@@ -1789,7 +1789,7 @@
         });
 
         // Enter key to confirm
-        emailInput.addEventListener('keypress', function(e) {
+        phoneInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 confirmCallBtn.click();
             }
